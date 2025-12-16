@@ -30,3 +30,10 @@ func TestMin(t *testing.T) {
 
 	assert.Equal(t, Age(25), Min[Age](Age(25), Age(30)))
 }
+
+func TestTypeInference(t *testing.T) {
+	assert.Equal(t, float32(9.99), Min(float32(9.99), float32(19.99)))
+	assert.Equal(t, float64(49.99), Min(float64(49.99), float64(59.99)))
+
+	assert.Equal(t, int(1000), Min(1000, 20000))
+}
