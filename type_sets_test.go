@@ -6,8 +6,10 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+type Age int
+
 type Number interface {
-	int | int8 | int16 | int32 | int64 |
+	~int | int8 | int16 | int32 | int64 |
 		uint | uint8 | uint16 | uint32 | uint64 |
 		float32 | float64
 }
@@ -25,4 +27,6 @@ func TestMin(t *testing.T) {
 	assert.Equal(t, int16(100), Min[int16](100, 200))
 	assert.Equal(t, int32(1000), Min[int32](1000, 2000))
 	assert.Equal(t, int64(10000), Min[int64](10000, 20000))
+
+	assert.Equal(t, Age(25), Min[Age](Age(25), Age(30)))
 }
